@@ -14,42 +14,23 @@ public class Tarifa {
     private double costeDistancia = 0;
     private double costeTiempoMinutos = 0;
 
-    /*-------------- Builders ----------------*/
-
-    public Tarifa() {}
-
-    /*---------------- Getters ------------------*/
-
-    public double getCosteMilla() {
-        return costeMilla;
-    }
-
-    public double getCosteMinuto() {
-        return costeMinuto;
-    }
-
-    public int getCosteMinimo() {
-        return costeMinimo;
-    }
-
-    public int getPorcentajeComision() {
-        return porcentajeComision;
-    }
-
-    /*---------------- Getters with logic -----------*/
 
     public double getCosteDistancia(double distancia) {
-        costeDistancia = getCosteMilla() * distancia;
+        costeDistancia = costeMilla * distancia;
         return costeDistancia;
     }
 
     public double getCosteTiempoMinutos(double tiempo) {
-        costeTiempoMinutos = getCosteMinuto() * tiempo;
+        costeTiempoMinutos = costeMinuto * tiempo;
         return costeTiempoMinutos;
     }
 
     public double getCosteTotalEsperado(Carrera carrera) {
         costeTotalEsperado = getCosteDistancia(carrera.getDistanciaCarrera()) + getCosteTiempoMinutos(carrera.getTiempoCarrera());
-        return costeTotalEsperado;
+        if (costeTotalEsperado >= costeMinimo) {
+            return costeTotalEsperado;
+        } else {
+            return costeMinimo;
+        }
     }
 }

@@ -5,25 +5,20 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.lasencinas.carrera.Carrera;
 import org.lasencinas.tarifa.Tarifa;
 
 
 public class TarifaTest {
 
     private Tarifa tarifa = null;
+    private Carrera carrera = null;
 
     @Before
     public void init() {
 
         tarifa = new Tarifa();
-    }
-    @Test
-    public void gettersTest() {
-
-        assertEquals(1.35, tarifa.getCosteMilla(), 0);
-        assertEquals(0.35, tarifa.getCosteMinuto(), 0);
-        assertEquals(5, tarifa.getCosteMinimo());
-        assertEquals(20, tarifa.getPorcentajeComision());
+        carrera = new Carrera();
     }
 
     @Test
@@ -36,5 +31,14 @@ public class TarifaTest {
     public void getCosteTiempoTest() {
 
         assertEquals(3.5, tarifa.getCosteTiempoMinutos(10), 0.5);
+    }
+
+    @Test
+    public void getCosteTotalEsperado() {
+
+        tarifa.getCosteDistancia(7.75);
+        tarifa.getCosteTiempoMinutos(10);
+        //TODO
+//        assertEquals(13.96, tarifa.getCosteTotalEsperado(carrera), 0.5);
     }
 }
