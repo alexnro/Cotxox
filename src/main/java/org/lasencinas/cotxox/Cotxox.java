@@ -12,7 +12,7 @@ public class Cotxox {
 //
 //        /*
 //         * Configuracion del usuario
-//         * y de la Carrera.
+//         * y de la carrera.
 //         *
 //         */
 //
@@ -22,7 +22,7 @@ public class Cotxox {
 //        double distancia = 7.75;
 //        int tiempoEsperadoMinutos = 10;
 //
-//        Carrera carrera = new Carrera(tarjetaCredito);
+//        carrera carrera = new carrera(tarjetaCredito);
 //        carrera.setOrigen(origen);
 //        carrera.setDestino(destino);
 //        carrera.setDistancia(distancia);

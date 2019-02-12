@@ -31,4 +31,10 @@ public class TarifaTest {
 
         assertEquals(10.46, tarifa.getCosteDistancia(7.75), 0.005);
     }
+
+    @Test
+    public void getCosteTiempoTest() {
+
+        assertEquals(3.5, tarifa.getCosteTiempoMinutos(10), 0.5);
+    }
 }

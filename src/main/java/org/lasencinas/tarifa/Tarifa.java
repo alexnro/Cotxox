@@ -1,5 +1,7 @@
 package org.lasencinas.tarifa;
 
+import org.lasencinas.carrera.Carrera;
+
 public class Tarifa {
 
     /*-------------- Variables -------------*/
@@ -9,18 +11,12 @@ public class Tarifa {
     private int costeMinimo = 5;
     private int porcentajeComision = 20;
     private double costeTotalEsperado = 0;
+    private double costeDistancia = 0;
+    private double costeTiempoMinutos = 0;
 
     /*-------------- Builders ----------------*/
 
     public Tarifa() {}
-
-    public Tarifa(double costeMilla, double costeMinuto, int costeMinimo, int porcentajeComision) {
-        this.costeMilla = costeMilla;
-        this.costeMinuto = costeMinuto;
-        this.costeMinimo = costeMinimo;
-        this.porcentajeComision = porcentajeComision;
-        this.costeTotalEsperado = costeTotalEsperado;
-    }
 
     /*---------------- Getters ------------------*/
 
@@ -43,6 +39,17 @@ public class Tarifa {
     /*---------------- Getters with logic -----------*/
 
     public double getCosteDistancia(double distancia) {
-        return 10.4625;
+        costeDistancia = getCosteMilla() * distancia;
+        return costeDistancia;
+    }
+
+    public double getCosteTiempoMinutos(double tiempo) {
+        costeTiempoMinutos = getCosteMinuto() * tiempo;
+        return costeTiempoMinutos;
+    }
+
+    public double getCosteTotalEsperado(Carrera carrera) {
+        costeTotalEsperado = getCosteDistancia(carrera.getDistanciaCarrera()) + getCosteTiempoMinutos(carrera.getTiempoCarrera());
+        return costeTotalEsperado;
     }
 }
