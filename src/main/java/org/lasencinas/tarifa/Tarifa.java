@@ -39,4 +39,10 @@ public class Tarifa {
     public int getPorcentajeComision() {
         return porcentajeComision;
     }
+
+    /*---------------- Getters with logic -----------*/
+
+    public double getCosteDistancia(double distancia) {
+        return 10.4625;
+    }
 }
