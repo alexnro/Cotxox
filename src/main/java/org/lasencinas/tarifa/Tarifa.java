@@ -24,18 +24,19 @@ public class Tarifa {
 
     /*---------------- Getters ------------------*/
 
-    public double getCosteDistancia(double distancia) {
-        setCosteDistancia();
-        return this.costeMilla;
+    public double getCosteMilla() {
+        return costeMilla;
     }
 
-    public double getCosteTiempo(int minutos) {
-        setCosteTiempo();
-        return this.costeMinuto;
+    public double getCosteMinuto() {
+        return costeMinuto;
     }
 
-    public double getCosteTotalEsperado() {
-        setCosteTotalEseprado();
-        return this.costeTotalEsperado;
+    public int getCosteMinimo() {
+        return costeMinimo;
+    }
+
+    public int getPorcentajeComision() {
+        return porcentajeComision;
     }
 }
