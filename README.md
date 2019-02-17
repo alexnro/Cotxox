@@ -1,6 +1,8 @@
 # Cotxox
 ## Clase Carrera
 
+Práctica para examen de programación.
+
 **Atributos**
 
 crea las variables de instancia que estimes oportunas.
