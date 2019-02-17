@@ -4,8 +4,6 @@ import org.lasencinas.carrera.Carrera;
 
 public class Tarifa {
 
-    /*-------------- Variables -------------*/
-
     private static double costeMilla = 1.35;
     private static double costeMinuto = 0.35;
     private static int costeMinimo = 5;

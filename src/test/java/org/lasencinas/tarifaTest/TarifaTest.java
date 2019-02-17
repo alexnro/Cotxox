@@ -11,34 +11,39 @@ import org.lasencinas.tarifa.Tarifa;
 
 public class TarifaTest {
 
-    private Tarifa tarifa = null;
-    private Carrera carrera = null;
-
-    @Before
-    public void init() {
-
-        tarifa = new Tarifa();
-//        carrera = new Carrera();
-    }
+    Carrera carrera = new Carrera("4929637175949220");
 
     @Test
     public void getCosteDistanciaTest() {
+        double distancia = 7.75;
+        double esperado = 10.4625;
+        double delta = 0.01;
 
-        assertEquals(10.46, tarifa.getCosteDistancia(7.75), 0.005);
+        assertEquals(esperado, Tarifa.getCosteDistancia(distancia), delta);
     }
 
     @Test
-    public void getCosteTiempoTest() {
-
-        assertEquals(3.5, tarifa.getCosteTiempoMinutos(10), 0.5);
+    public void getCosteTiempo() {
+        int minutos = 10;
+        double costeTiempoEsperado = 3.5;
+        double delta = 0.01;
+        assertEquals(costeTiempoEsperado, Tarifa.getCosteTiempoMinutos(minutos), delta);
     }
 
     @Test
     public void getCosteTotalEsperado() {
+        carrera.setDistancia(7.75);
+        carrera.setTiempoEsperado(10);
+        double costeTotal = 7.75 * 1.35 + 0.35 * 10;
+        double delta = 0.01;
+        assertEquals(costeTotal, Tarifa.getCosteTotalEsperado(carrera), delta);
+    }
 
-        tarifa.getCosteDistancia(7.75);
-        tarifa.getCosteTiempoMinutos(10);
-        //TODO
-//        assertEquals(13.96, tarifa.getCosteTotalEsperado(carrera), 0.5);
+    @Test
+    public void getCosteTotalEsperadoMinimoTest() {
+        carrera.setDistancia(2);
+        carrera.setTiempoEsperado(2);
+        double delta = 0.01;
+        assertEquals(5, Tarifa.getCosteTotalEsperado(carrera), delta);
     }
 }

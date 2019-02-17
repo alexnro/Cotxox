@@ -8,8 +8,6 @@ public class Carrera {
 
     Conductor conductor = null;
 
-    /*------------ Variables -----------*/
-
     private double tiempoEsperado = 0;
     private double tiempoCarrera = 0;
     private double distanciaCarrera = 0;
@@ -20,13 +18,9 @@ public class Carrera {
     private double distancia = 0;
     private double propinaTotal = 0;
 
-    /*------------ Builders ------------*/
-
     public Carrera(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
-
-    /*--------------------- Setters -------------------------*/
 
     public void setTiempoEsperado(double tiempoEsperado) {
         this.tiempoEsperado = tiempoEsperado;
@@ -51,8 +45,6 @@ public class Carrera {
     public void setConductor(Conductor conductor) {
         this.conductor = conductor;
     }
-
-    /*----------- Getters -------------*/
 
     public double getTiempoEsperado() {
         return tiempoEsperado;
@@ -97,8 +89,6 @@ public class Carrera {
     public double getCosteTotal() {
         return this.costeTotal;
     }
-
-    /*------------ Logic -----------*/
 
     public void asignarConductor(PoolConductores conductores) {
         setConductor(conductores.asignarConductor());
