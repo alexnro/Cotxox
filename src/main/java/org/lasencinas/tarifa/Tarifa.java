@@ -6,27 +6,27 @@ public class Tarifa {
 
     /*-------------- Variables -------------*/
 
-    private double costeMilla = 1.35;
-    private double costeMinuto = 0.35;
-    private int costeMinimo = 5;
-    private int porcentajeComision = 20;
-    private double costeTotalEsperado = 0;
-    private double costeDistancia = 0;
-    private double costeTiempoMinutos = 0;
+    private static double costeMilla = 1.35;
+    private static double costeMinuto = 0.35;
+    private static int costeMinimo = 5;
+    private static int porcentajeComision = 20;
+    private static double costeTotalEsperado = 0;
+    private static double costeDistancia = 0;
+    private static double costeTiempoMinutos = 0;
 
 
-    public double getCosteDistancia(double distancia) {
+    public static double getCosteDistancia(double distancia) {
         costeDistancia = costeMilla * distancia;
         return costeDistancia;
     }
 
-    public double getCosteTiempoMinutos(double tiempo) {
+    public static double getCosteTiempoMinutos(double tiempo) {
         costeTiempoMinutos = costeMinuto * tiempo;
         return costeTiempoMinutos;
     }
 
-    public double getCosteTotalEsperado(Carrera carrera) {
-        costeTotalEsperado = getCosteDistancia(carrera.getDistanciaCarrera()) + getCosteTiempoMinutos(carrera.getTiempoCarrera());
+    public static double getCosteTotalEsperado(Carrera carrera) {
+        costeTotalEsperado = getCosteDistancia(carrera.getDistancia()) + getCosteTiempoMinutos(carrera.getTiempoEsperado());
         if (costeTotalEsperado >= costeMinimo) {
             return costeTotalEsperado;
         } else {

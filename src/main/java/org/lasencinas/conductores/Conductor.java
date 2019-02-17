@@ -6,48 +6,60 @@ import java.util.List;
 public class Conductor {
 
     private String nombre = null;
-    private String modeloCoche = null;
+    private String modelo = null;
     private String matricula = null;
-    private int valoracionMedia = 0;
-    private List<Integer> valoraciones = new ArrayList<Integer>();
+    private double valoracionMedia = 0;
+    private List<Double> valoraciones = new ArrayList<>();
     private boolean ocupado = false;
 
     public Conductor() {}
 
-    public Conductor(String nombre) {
-        this.nombre = nombre;
+    public Conductor(String nombreConductor) {
+        this.nombre = nombreConductor;
     }
 
-    public void setModeloCoche(String modeloCoche) {
-        this.modeloCoche = modeloCoche;
+    public void setModelo(String modeloCoche) {
+        this.modelo = modeloCoche;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setMatricula(String matriculaCoche) {
+        this.matricula = matriculaCoche;
     }
 
-    public void setValoracion(int valoracion) {
-        valoraciones.add(valoracion);
-        int auxiliar = 0;
-        for (int valor : valoraciones) {
+    public void setOcupado(Boolean isOcupado) {
+        this.ocupado = isOcupado;
+    }
+
+    public void setValoracion(double valoracion) {
+        this.valoraciones.add(valoracion);
+        double auxiliar = 0;
+        for (double valor : this.valoraciones) {
             auxiliar += valor;
         }
-        valoracionMedia = auxiliar / valoraciones.size()-1;
+        this.valoracionMedia = auxiliar / valoraciones.size();
+    }
+
+    public String getNombre() {
+        return this.nombre;
     }
 
     public String getModeloCoche() {
-        return modeloCoche;
+        return this.modelo;
     }
 
     public String getMatricula() {
-        return matricula;
+        return this.matricula;
     }
 
-    public int getValoracionMedia() {
-        return valoracionMedia;
+    public double getValoracionMedia() {
+        return this.valoracionMedia;
     }
 
-    public List<Integer> getValoraciones() {
-        return valoraciones;
+    public boolean isOcupado() {
+        if (ocupado) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

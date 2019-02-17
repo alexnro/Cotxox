@@ -18,7 +18,7 @@ public class TarifaTest {
     public void init() {
 
         tarifa = new Tarifa();
-        carrera = new Carrera();
+//        carrera = new Carrera();
     }
 
     @Test
