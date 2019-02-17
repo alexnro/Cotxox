@@ -25,7 +25,7 @@ public class PoolConductores {
             conductor = getPoolConductores().get(index);
             if (!conductor.isOcupado()) {
                 conductor.setOcupado(true);
-                asignado = true;
+                asignado = true; 
             }
         }
         return conductor;
